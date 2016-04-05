@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title>Services - zend-servicemanager-di</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/zf.css" rel="stylesheet">
+    <link href="../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a href="http://framework.zend.com"><img src="../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="..">zend-servicemanager-di</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Services</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Migration <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../migration/v2-to-v3/">Version 2 to Version 3</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="prev" href="..">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../migration/v2-to-v3/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-servicemanager-di">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#services-provided">Services Provided</a></li>
+        
+            <li><a href="#difactory">DiFactory</a></li>
+        
+            <li><a href="#diservicefactory">DiServiceFactory</a></li>
+        
+            <li><a href="#diabstractservicefactory">DiAbstractServiceFactory</a></li>
+        
+            <li><a href="#districtabstractservicefactory">DiStrictAbstractServiceFactory</a></li>
+        
+            <li><a href="#diserviceinitializer">DiServiceInitializer</a></li>
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="..">Docs</a> &raquo;</li>
+  
+    
+  
+  <li class="active">Services</li>
+</ol>
+
+<nav class="hidden-lg">
+  <ul class="pager">
+    <li class="previous">
+      <a rel="prev" href=".."><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../migration/v2-to-v3/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+
+<h1 id="services-provided">Services Provided</h1>
+<p>zend-servicemanager-di provides a number of factories and services that
+integrate <a href="https://github.com/zendframework/zend-di">zend-di</a> into
+<a href="https://zendframework.github.io/zend-servicemanager/">zend-servicemanager</a>.
+The following lists each, and details:</p>
+<ul>
+<li>whether or not they are registered by default; and</li>
+<li>how to enable them if not.</li>
+</ul>
+<h2 id="difactory">DiFactory</h2>
+<p><code>Zend\ServiceManager\Di\DiFactory</code> creates and returns a <code>Zend\Di\Di</code> instance.
+If the <code>config</code> service is present, and contains a top-level <code>di</code> key, the value
+of that key will be used to seed a <code>Zend\Di\Config</code> instance, which will then in
+turn be used to configure the <code>Di</code> instance.</p>
+<p>By default, this factory is mapped to the service name <code>DependencyInjector</code>, and
+aliased to <code>Di</code>.</p>
+<p>Configuration for the service should follow the rules for
+<a href="http://framework.zend.com/manual/current/en/modules/zend.di.configuration.html"><code>Zend\Di\Config</code></a>.</p>
+<h2 id="diservicefactory">DiServiceFactory</h2>
+<p><code>Zend\ServiceManager\Di\DiServiceFactory</code> provides a zend-di-backed factory that
+will use the name provided and attempt to create the relevant object instance.</p>
+<p>The constructor accepts three arguments:</p>
+<ul>
+<li><code>$di</code>, a <code>Zend\Di\Di</code> instance.</li>
+<li><code>$useContainer</code>, one of the class constants <code>USE_SL_BEFORE_DI</code>,
+  <code>USE_SL_AFTER_DI</code>, <code>USE_SL_NONE</code>, as detailed below.</li>
+</ul>
+<p>The factory composes the <code>Di</code> instance, and uses the <code>$useContainer</code> value to
+determine how to attempt to create the instance, according to the following
+rules:</p>
+<ul>
+<li>If <code>USE_SL_BEFORE_DI</code> is provided, the factory will attempt to fetch the service
+  from the passed container first, and fall back to the composed DI container
+  only on failure.</li>
+<li>If <code>USE_SL_AFTER_DI</code> is provided, the factory will attempt to fetch the service
+  from the composed DI container first, and fall back to the passed container
+  only on failure.</li>
+<li>If <code>USE_SL_NONE</code> is provided (or no argument is passed), then the factory will
+  only fetch from the composed DI container.</li>
+</ul>
+<p>While you can use the factory directly, doing so requires seeding it with a
+configured <code>Di</code> instance. In most cases, you will use the
+<code>DiAbstractServiceFactory</code> instead, as detailed in the next section.</p>
+<h2 id="diabstractservicefactory">DiAbstractServiceFactory</h2>
+<p><code>Zend\ServiceManager\Di\DiAbstractServiceFactory</code> provides an <a href="http://zendframework.github.io/zend-servicemanager/configuring-the-service-manager/#abstract-factories">abstract
+factory</a>
+that will, on invocation, pull the requested class from the composed
+<code>Zend\Di\Di</code> instance. It extends <code>DiServiceFactory</code> to provide the utilities
+necessary to act as an abstract factory.</p>
+<p>When determining if a requested service can be created, it does the following,
+in the following order:</p>
+<ul>
+<li>Checks if a shared instance is already present for the requested service in
+  the DI instance manager.</li>
+<li>Checks if an alias exists for the requested service in the DI instance
+  manager.</li>
+<li>Checks if configuration exists for the requested service in the DI instance
+  manager.</li>
+<li>Checks if type preferences exist for the requested service in the DI instance
+  manager.</li>
+</ul>
+<p>If none of the above return true, it then:</p>
+<ul>
+<li>checks if a class definition exists for the requested service;</li>
+<li>checks if the requested service is an interface name.</li>
+</ul>
+<p>If none of the above return true, it will not attempt to create the requested
+service.</p>
+<p>If the service can be created, creation follows the rules outlined for the
+<a href="#diservicefactory">DiServiceFactory</a>.</p>
+<p><code>DiAbstractServiceFactory</code> is registered under the service name
+<code>DiAbstractServiceFactory</code> by default. To register it as an abstract factory in
+your code, you will need to manually register it. This will typically be done
+via one of your application modules, within the <code>onBootstrap()</code> method:</p>
+<pre class="codehilite"><code class="language-php">class Module
+{
+    public function onBootstrap($e)
+    {
+        $app = $e-&gt;getTarget();
+        $services = $app-&gt;getServiceManager();
+
+        $services-&gt;addAbstractFactory($services-&gt;get('DiAbstractServiceFactory'));
+    }
+}</code></pre>
+
+
+<p>This should typically be done in a module registered early, to ensure it happens
+before many services are pulled from the container.</p>
+<h2 id="districtabstractservicefactory">DiStrictAbstractServiceFactory</h2>
+<p><code>Zend\ServiceManager\Di\DiStrictAbstractServiceFactory</code> works similarly to
+<code>DiAbstractServiceFactory</code> and <code>DiServiceFactory</code>, with a few key differences.</p>
+<p>First, unlike <code>DiAbstractServiceFactory</code>, it directly extends <code>Zend\Di\Di</code>; as
+such, it acts exactly like <code>Zend\Di\Di</code>, except where it specifically overloads
+functionality. Second, it implements a <em>whitelist</em>; if the requested class does
+not exist in the whitelist, the abstract factory will not attempt to create an
+instance. This latter is useful for creating a <em>scoped</em> <code>Di</code> instance. As an
+example, when pulling controllers, you may be tempted to use a <code>:controller</code>
+segment in your routing; having a whitelist ensures that if a user requests an
+arbitrary classname for the controller, the abstract factory will not attempt to
+create an instance!</p>
+<p><code>DiStrictAbstractServiceFactory</code> is registered under the service name
+<code>DiStrictAbstractServiceFactory</code> by default. To register it as an abstract factory in
+your code, you will need to manually register it. This will typically be done
+via one of your application modules, within the <code>onBootstrap()</code> method:</p>
+<pre class="codehilite"><code class="language-php">class Module
+{
+    public function onBootstrap($e)
+    {
+        $app = $e-&gt;getTarget();
+        $services = $app-&gt;getServiceManager();
+
+        $services-&gt;addAbstractFactory($services-&gt;get('DiStrictAbstractServiceFactory'));
+    }
+}</code></pre>
+
+
+<p>This should typically be done in a module registered early, to ensure it happens
+before many services are pulled from the container.</p>
+<p>By default, <code>DiStrictAbstractServiceFactory</code> is consumed by
+<code>Zend\Mvc\Controller\ControllerManager</code>; if the abstract factory is detected, it
+is added as an abstract factory to the <code>ControllerManager</code> instance.</p>
+<p>Thsu, by default, the factory for building the <code>DiStrictAbstractServiceFactory</code>
+instance checks for configuration under <code>di.allowed_controllers</code>; this should
+be an array of controller names to add to the service:</p>
+<pre class="codehilite"><code class="language-php">return [
+    'di' =&gt; [
+        'allowed_controllers' =&gt; [
+            'Some\Controller\Name',
+        ],
+    ],
+];</code></pre>
+
+
+<p>You can use <code>DiStrictAbstractServiceFactory</code> in other locations as well, and
+with other configuration. Consider using <a href="http://zendframework.github.io/zend-servicemanager/delegators/">delegator factories</a>
+in order to seed the <code>DiStrictAbstractServiceFactory</code>:</p>
+<pre class="codehilite"><code class="language-php">public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)
+{
+    $diStrictAbstractFactory = $callback();
+
+    $config = $container-&gt;has('config') ? $container-&gt;get('config') : [];
+
+    if (! isset($config['application_di_class_whitelist'])) {
+        return $diStrictAbstractFactory;
+    }
+
+    $diStrictAbstractFactory-&gt;setAllowedServiceNames($config['application_di_class_whitelist']);
+    return $diStrictAbstractFactory;
+}</code></pre>
+
+
+<h2 id="diserviceinitializer">DiServiceInitializer</h2>
+<p><code>Zend\ServiceManager\Di\DiServiceInitializer</code> is a zend-servicemanager
+<a href="http://zendframework.github.io/zend-servicemanager/configuring-the-service-manager/#initializers">initializer</a>,
+and can be used to initialize instances after they've already been pulled from
+the container. This functionality can work with invokable services, or to
+augment existing factories in your zend-servicemanager configuration.</p>
+<p>Because the initializer requires a <code>Zend\Di\Di</code> instance, as well as the parent
+application container, it is registered with zend-servicemanager, and you will
+need to retrieve it and add it as an initializer manually, typically in an
+application module's <code>onBootstrap()</code> method:</p>
+<pre class="codehilite"><code class="language-php">class Module
+{
+    public function onBootstrap($e)
+    {
+        $app = $e-&gt;getTarget();
+        $services = $app-&gt;getServiceManager();
+
+        $services-&gt;addInitializer($services-&gt;get('DiServiceInitializer'));
+    }
+}</code></pre>
+
+
+<p>We do not recommend using this functionality, as initializers are run for every
+new instance retrieved, and the functionality could conflict with existing
+factories for services.</p>
+
+<hr />
+
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a rel="prev" href=".."><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../migration/v2-to-v3/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav></div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/prism-zf.js"></script>
+
+    <script>var base_url = '..';</script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
