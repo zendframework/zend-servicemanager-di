@@ -1,0 +1,11 @@
+docs_dir: doc/book
+site_dir: doc/html
+pages:
+    - index.md
+    - Services: services.md
+    - Migration:
+      - "Version 2 to Version 3": migration/v2-to-v3.md
+site_name: zend-servicemanager-di
+site_description: 'zend-servicemanager-di: zend-servicemanager / zend-di integration'
+repo_url: 'https://github.com/zendframework/zend-servicemanager-di'
+copyright: 'Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a>'
