@@ -8,7 +8,6 @@
 namespace Zend\ServiceManager\Di;
 
 use Interop\Container\ContainerInterface;
-use DiAbstractServiceFactory;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\ServiceManager;
