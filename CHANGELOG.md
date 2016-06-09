@@ -14,13 +14,13 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Imports a patch from [zend-mvc](https://github.com/zendframework/zend-mvc/pull/149)
-  that fixes some issues with the `DiAbstractServiceFactoryFactory` due to
-  incorrect variable names and import statements.
+- Nothing.
 
 ### Fixed
 
-- Nothing.
+- Imports a patch from [zend-mvc](https://github.com/zendframework/zend-mvc/pull/149)
+  that fixes some issues with the `DiAbstractServiceFactoryFactory` due to
+  incorrect variable names and import statements.
 
 ## 1.0.0 - 2016-04-06
 
