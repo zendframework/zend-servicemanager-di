@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## 1.0.1 - TBD
+## 1.0.1 - 2016-06-09
 
 ### Added
 
@@ -32,7 +32,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Nothing.
+- Imports a patch from [zend-mvc](https://github.com/zendframework/zend-mvc/pull/149)
+  that fixes some issues with the `DiAbstractServiceFactoryFactory` due to
+  incorrect variable names and import statements.
 
 ### Fixed
 
