@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.1.0 - TBD
+
+### Added
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- [#1](https://github.com/zendframework/zend-servicemanager-di/pull/1) removes
+  support for zend-servicemanager v2. Because this package duplicated several
+  classes from zend-servicemanager v2, it caused conflicts, which could be
+  observed when generating an optimized autoloader with Composer.
+- [#1](https://github.com/zendframework/zend-servicemanager-di/pull/1) removes
+  support for PHP 5.5, marking PHP 5.6 as the minimum supported version.
+
+### Fixed
+
+- Nothing.
+
 ## 1.0.2 - TBD
 
 ### Added
