@@ -14,7 +14,12 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Nothing.
+- [#1](https://github.com/zendframework/zend-servicemanager-di/pull/1) removes
+  support for zend-servicemanager v2. Because this package duplicated several
+  classes from zend-servicemanager v2, it caused conflicts, which could be
+  observed when generating an optimized autoloader with Composer.
+- [#1](https://github.com/zendframework/zend-servicemanager-di/pull/1) removes
+  support for PHP 5.5, marking PHP 5.6 as the minimum supported version.
 
 ### Fixed
 
