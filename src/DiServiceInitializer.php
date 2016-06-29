@@ -11,7 +11,6 @@ use Exception;
 use Interop\Container\ContainerInterface;
 use Zend\Di\Di;
 use Zend\ServiceManager\AbstractPluginManager;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 class DiServiceInitializer extends Di
 {
