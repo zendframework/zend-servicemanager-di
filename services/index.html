@@ -252,7 +252,6 @@ via one of your application modules, within the <code>onBootstrap()</code> metho
     }
 }</code></pre>
 
-
 <p>This should typically be done in a module registered early, to ensure it happens
 before many services are pulled from the container.</p>
 <h2 id="districtabstractservicefactory">DiStrictAbstractServiceFactory</h2>
@@ -282,7 +281,6 @@ via one of your application modules, within the <code>onBootstrap()</code> metho
     }
 }</code></pre>
 
-
 <p>This should typically be done in a module registered early, to ensure it happens
 before many services are pulled from the container.</p>
 <p>By default, <code>DiStrictAbstractServiceFactory</code> is consumed by
@@ -298,7 +296,6 @@ be an array of controller names to add to the service:</p>
         ],
     ],
 ];</code></pre>
-
 
 <p>You can use <code>DiStrictAbstractServiceFactory</code> in other locations as well, and
 with other configuration. Consider using <a href="http://zendframework.github.io/zend-servicemanager/delegators/">delegator factories</a>
@@ -316,7 +313,6 @@ in order to seed the <code>DiStrictAbstractServiceFactory</code>:</p>
     $diStrictAbstractFactory-&gt;setAllowedServiceNames($config['application_di_class_whitelist']);
     return $diStrictAbstractFactory;
 }</code></pre>
-
 
 <h2 id="diserviceinitializer">DiServiceInitializer</h2>
 <p><code>Zend\ServiceManager\Di\DiServiceInitializer</code> is a zend-servicemanager
@@ -338,7 +334,6 @@ application module's <code>onBootstrap()</code> method:</p>
         $services-&gt;addInitializer($services-&gt;get('DiServiceInitializer'));
     }
 }</code></pre>
-
 
 <p>We do not recommend using this functionality, as initializers are run for every
 new instance retrieved, and the functionality could conflict with existing
