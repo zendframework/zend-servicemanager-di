@@ -37,7 +37,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#3](https://github.com/zendframework/zend-servicemanager-di/pull/3) fixes a
+  number of import statements, removing several unused statements, adding
+  missing statements, and fixing those refering to container-interop interfaces.
 
 ## 1.1.0 - 2016-06-13
 

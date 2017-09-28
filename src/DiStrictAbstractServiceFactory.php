@@ -14,6 +14,7 @@ use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\AbstractPluginManager;
 use Zend\ServiceManager\Exception;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\ServiceManager\Di\Exception\DomainException;
 
 /**
  * Create and return instances from a DI container and/or the parent container.
@@ -137,7 +138,7 @@ class DiStrictAbstractServiceFactory extends Di implements AbstractFactoryInterf
     public function get($name, array $params = [])
     {
         if (null === $this->container) {
-            throw new Exception\DomainException(
+            throw new DomainException(
                 'No ServiceLocator defined, use `createServiceWithName` instead of `get`'
             );
         }
