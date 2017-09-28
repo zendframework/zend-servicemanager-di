@@ -7,7 +7,7 @@
 
 namespace Zend\ServiceManager\Di;
 
-use Container\Interop\ContainerInterface;
+use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
