@@ -19,7 +19,7 @@ By default, this factory is mapped to the service name `DependencyInjector`, and
 aliased to `Di`.
 
 Configuration for the service should follow the rules for
-[`Zend\Di\Config`](http://framework.zend.com/manual/current/en/modules/zend.di.configuration.html).
+[`Zend\Di\Config`](https://docs.zendframework.com/zend-di/config/).
 
 ## DiServiceFactory
 
