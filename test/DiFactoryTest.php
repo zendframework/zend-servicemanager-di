@@ -11,7 +11,6 @@ use Interop\Container\ContainerInterface;
 use PHPUnit\Framework\TestCase;
 use Zend\Di\Di;
 use Zend\ServiceManager\Di\DiFactory;
-use Zend\ServiceManager\ServiceManager;
 
 class DiFactoryTest extends TestCase
 {

@@ -12,8 +12,8 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 use Zend\Di\Di;
 use Zend\Di\InstanceManager;
-use Zend\ServiceManager\Di\DiServiceInitializer;
 use Zend\ServiceManager\Di\DiInstanceManagerProxy;
+use Zend\ServiceManager\Di\DiServiceInitializer;
 
 class DiServiceInitializerTest extends TestCase
 {

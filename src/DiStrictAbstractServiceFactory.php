@@ -12,9 +12,9 @@ use Zend\Di\Di;
 use Zend\Di\Exception\ClassNotFoundException;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\AbstractPluginManager;
+use Zend\ServiceManager\Di\Exception\DomainException;
 use Zend\ServiceManager\Exception;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\ServiceManager\Di\Exception\DomainException;
 
 /**
  * Create and return instances from a DI container and/or the parent container.
