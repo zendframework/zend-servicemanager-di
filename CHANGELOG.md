@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#16](https://github.com/zendframework/zend-servicemanager-di/pull/16) adds support for 7.2.
 
 ### Changed
 
@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Nothing.
+- [#16](https://github.com/zendframework/zend-servicemanager-di/pull/16) removes support for HHVM.
 
 ### Fixed
 
