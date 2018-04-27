@@ -8,7 +8,7 @@
 namespace ZendTest\ServiceManager\Di;
 
 use Interop\Container\ContainerInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use stdClass;
 use Zend\Di\Definition\DefinitionInterface;
 use Zend\Di\Di;
@@ -21,17 +21,19 @@ class DiAbstractServiceFactoryTest extends TestCase
     /**
      * @var DiAbstractServiceFactory
      */
-    protected $diAbstractServiceFactory = null;
+    protected $diAbstractServiceFactory;
 
-    protected $fooInstance = null;
-    protected $mockContainer = null;
-    protected $mockDi = null;
+    protected $fooInstance;
+    protected $mockContainer;
+    protected $mockDi;
 
-    public function setup()
+    protected function setUp()
     {
         $instanceManager = new InstanceManager();
         $instanceManager->addSharedInstance($this->fooInstance = new stdClass(), 'foo');
-        $this->mockDi = $this->getMock(Di::class, [], [null, $instanceManager]);
+        $this->mockDi = $this->getMockBuilder(Di::class)
+            ->setConstructorArgs([null, $instanceManager])
+            ->getMock();
 
         $this->mockContainer = $this->prophesize(ServiceLocatorInterface::class);
         $this->mockContainer->willImplement(ContainerInterface::class);
@@ -39,9 +41,8 @@ class DiAbstractServiceFactoryTest extends TestCase
         $this->diAbstractServiceFactory = new DiAbstractServiceFactory($this->mockDi);
     }
 
-
     /**
-     * @covers Zend\ServiceManager\Di\DiAbstractServiceFactory::__construct
+     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::__construct
      */
     public function testConstructor()
     {
@@ -54,8 +55,8 @@ class DiAbstractServiceFactoryTest extends TestCase
     /**
      * @group 6021
      *
-     * @covers Zend\ServiceManager\Di\DiAbstractServiceFactory::createServiceWithName
-     * @covers Zend\ServiceManager\Di\DiAbstractServiceFactory::get
+     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::createServiceWithName
+     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::get
      */
     public function testCreateServiceWithNameAndWithoutRequestName()
     {
@@ -68,8 +69,8 @@ class DiAbstractServiceFactoryTest extends TestCase
     }
 
     /**
-     * @covers Zend\ServiceManager\Di\DiAbstractServiceFactory::createServiceWithName
-     * @covers Zend\ServiceManager\Di\DiAbstractServiceFactory::get
+     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::createServiceWithName
+     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::get
      */
     public function testCreateServiceWithName()
     {
@@ -82,7 +83,7 @@ class DiAbstractServiceFactoryTest extends TestCase
     }
 
     /**
-     * @covers Zend\ServiceManager\Di\DiAbstractServiceFactory::canCreateServiceWithName
+     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::canCreateServiceWithName
      */
     public function testCanCreateServiceWithName()
     {

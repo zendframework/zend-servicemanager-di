@@ -1,12 +1,13 @@
 <?php
 namespace ZendTest\Mvc\Service;
 
+use PHPUnit\Framework\TestCase;
 use Zend\ServiceManager\Di\DiAbstractServiceFactoryFactory;
 use Zend\ServiceManager\Di\DiFactory;
 use Zend\ServiceManager\Di\DiAbstractServiceFactory;
 use Zend\ServiceManager\ServiceManager;
 
-class DiAbstractServiceFactoryFactoryTest extends \PHPUnit_Framework_TestCase
+class DiAbstractServiceFactoryFactoryTest extends TestCase
 {
     public function testWillInitializeDiAbstractServiceFactory()
     {

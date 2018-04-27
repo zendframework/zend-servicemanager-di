@@ -8,7 +8,7 @@
 namespace ZendTest\ServiceManager\Di;
 
 use Interop\Container\ContainerInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use stdClass;
 use Zend\Di\Config;
 use Zend\Di\Di;
@@ -58,7 +58,7 @@ class DiStrictAbstractServiceFactoryTest extends TestCase
             'not-whitelisted'
         ));
 
-        $this->setExpectedException(InvalidServiceException::class);
+        $this->expectException(InvalidServiceException::class);
         $instance->createServiceWithName($locator->reveal(), 'not-whitelisted', 'not-whitelisted');
     }
 
