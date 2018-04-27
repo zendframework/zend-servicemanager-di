@@ -2,8 +2,8 @@
 
 zend-servicemanager-di ports all DI integration present in:
 
-- [zend-servicemanager](https://zendframework.github.io/zend-servicemanager), and
-- [zend-mvc](https://zendframework.github.io/zend-mvc)
+- [zend-servicemanager](https://docs.zendframework.com/zend-servicemanager), and
+- [zend-mvc](https://docs.zendframework.com/zend-mvc)
 
 to a single, optional component. As such, a number of classes were renamed that
 may impact end-users.
