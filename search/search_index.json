@@ -2,12 +2,12 @@
     "docs": [
         {
             "location": "/",
-            "text": "zend-servicemanager-di\n\n\n\n\n\n\nProvides integration for \nzend-di\n\nwithin \nzend-servicemanager\n\n\n\n\nFile issues at https://github.com/zendframework/zend-servicemanager-di/issues\n\n\nDocumentation is at https://zendframework.github.io/zend-servicemanager-di/",
-            "title": "Home"
+            "text": "zend-servicemanager-di\n\n\n\n\n\n\nProvides integration for \nzend-di\n\nwithin \nzend-servicemanager\n\n\n\n\nFile issues at https://github.com/zendframework/zend-servicemanager-di/issues\n\n\nDocumentation is at https://docs.zendframework.com/zend-servicemanager-di/",
+            "title": "zend-servicemanager-di"
         },
         {
             "location": "/#zend-servicemanager-di",
-            "text": "Provides integration for  zend-di \nwithin  zend-servicemanager   File issues at https://github.com/zendframework/zend-servicemanager-di/issues  Documentation is at https://zendframework.github.io/zend-servicemanager-di/",
+            "text": "Provides integration for  zend-di \nwithin  zend-servicemanager   File issues at https://github.com/zendframework/zend-servicemanager-di/issues  Documentation is at https://docs.zendframework.com/zend-servicemanager-di/",
             "title": "zend-servicemanager-di"
         },
         {
