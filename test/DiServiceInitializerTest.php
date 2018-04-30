@@ -1,33 +1,33 @@
 <?php
 /**
- * @link      http://github.com/zendframework/zend-servicemanager-di for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/zendframework/zend-servicemanager-di for the canonical source repository
+ * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
+ * @license   https://github.com/zendframework/zend-servicemanager-di/blob/master/LICENSE.md New BSD License
  */
 
 namespace ZendTest\ServiceManager\Di;
 
 use Interop\Container\ContainerInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use stdClass;
 use Zend\Di\Di;
 use Zend\Di\InstanceManager;
-use Zend\ServiceManager\Di\DiServiceInitializer;
 use Zend\ServiceManager\Di\DiInstanceManagerProxy;
+use Zend\ServiceManager\Di\DiServiceInitializer;
 
 class DiServiceInitializerTest extends TestCase
 {
     /**
      * @var DiServiceInitializer
      */
-    protected $diServiceInitializer = null;
+    protected $diServiceInitializer;
 
-    protected $mockContainer = null;
-    protected $mockDi = null;
-    protected $mockDiInstanceManagerProxy = null;
-    protected $mockDiInstanceManager = null;
+    protected $mockContainer;
+    protected $mockDi;
+    protected $mockDiInstanceManagerProxy;
+    protected $mockDiInstanceManager;
 
-    public function setup()
+    protected function setUp()
     {
         $this->mockDi = $this->prophesize(Di::class);
 
@@ -49,7 +49,7 @@ class DiServiceInitializerTest extends TestCase
     }
 
     /**
-     * @covers Zend\ServiceManager\Di\DiServiceInitializer::__invoke
+     * @covers \Zend\ServiceManager\Di\DiServiceInitializer::__invoke
      */
     public function testInitializeUsingV2Api()
     {
@@ -62,7 +62,7 @@ class DiServiceInitializerTest extends TestCase
     }
 
     /**
-     * @covers Zend\ServiceManager\Di\DiServiceInitializer::__invoke
+     * @covers \Zend\ServiceManager\Di\DiServiceInitializer::__invoke
      */
     public function testInitializeUsingV3Api()
     {
@@ -75,7 +75,7 @@ class DiServiceInitializerTest extends TestCase
     }
 
     /**
-     * @covers Zend\ServiceManager\Di\DiServiceInitializer::__invoke
+     * @covers \Zend\ServiceManager\Di\DiServiceInitializer::__invoke
      * @todo this needs to be moved into its own class
      */
     public function testProxyInstanceManagersStayInSync()
