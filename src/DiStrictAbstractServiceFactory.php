@@ -1,8 +1,8 @@
 <?php
 /**
- * @link      http://github.com/zendframework/zend-servicemanager-di for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/zendframework/zend-servicemanager-di for the canonical source repository
+ * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
+ * @license   https://github.com/zendframework/zend-servicemanager-di/blob/master/LICENSE.md New BSD License
  */
 
 namespace Zend\ServiceManager\Di;
@@ -12,9 +12,9 @@ use Zend\Di\Di;
 use Zend\Di\Exception\ClassNotFoundException;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\AbstractPluginManager;
+use Zend\ServiceManager\Di\Exception\DomainException;
 use Zend\ServiceManager\Exception;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\ServiceManager\Di\Exception\DomainException;
 
 /**
  * Create and return instances from a DI container and/or the parent container.

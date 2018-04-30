@@ -1,14 +1,14 @@
 <?php
 /**
- * @link      http://github.com/zendframework/zend-servicemanager-di for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/zendframework/zend-servicemanager-di for the canonical source repository
+ * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
+ * @license   https://github.com/zendframework/zend-servicemanager-di/blob/master/LICENSE.md New BSD License
  */
 
 namespace ZendTest\ServiceManager\Di;
 
 use Interop\Container\ContainerInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use stdClass;
 use Zend\Di\Di;
 use Zend\Di\InstanceManager;
@@ -20,13 +20,13 @@ class DiServiceFactoryTest extends TestCase
     /**
      * @var DiServiceFactory
      */
-    protected $diServiceFactory = null;
+    protected $diServiceFactory;
 
-    protected $mockContainer = null;
-    protected $mockDi = null;
-    protected $fooInstance = null;
+    protected $mockContainer;
+    protected $mockDi;
+    protected $fooInstance;
 
-    public function setup()
+    protected function setUp()
     {
         $instanceManager = new InstanceManager();
         $instanceManager->addSharedInstanceWithParameters(
@@ -34,7 +34,9 @@ class DiServiceFactoryTest extends TestCase
             'foo',
             ['bar' => 'baz']
         );
-        $this->mockDi = $this->getMock(Di::class, [], [null, $instanceManager]);
+        $this->mockDi = $this->getMockBuilder(Di::class)
+            ->setConstructorArgs([null, $instanceManager])
+            ->getMock();
 
         $this->mockContainer = $this->prophesize(ServiceLocatorInterface::class);
         $this->mockContainer->willImplement(ContainerInterface::class);
@@ -46,7 +48,7 @@ class DiServiceFactoryTest extends TestCase
     }
 
     /**
-     * @covers Zend\ServiceManager\Di\DiServiceFactory::__construct
+     * @covers \Zend\ServiceManager\Di\DiServiceFactory::__construct
      */
     public function testConstructor()
     {
@@ -58,8 +60,8 @@ class DiServiceFactoryTest extends TestCase
     }
 
     /**
-     * @covers Zend\ServiceManager\Di\DiServiceFactory::createService
-     * @covers Zend\ServiceManager\Di\DiServiceFactory::get
+     * @covers \Zend\ServiceManager\Di\DiServiceFactory::createService
+     * @covers \Zend\ServiceManager\Di\DiServiceFactory::get
      */
     public function testCreateService()
     {

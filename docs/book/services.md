@@ -2,7 +2,7 @@
 
 zend-servicemanager-di provides a number of factories and services that
 integrate [zend-di](https://github.com/zendframework/zend-di) into
-[zend-servicemanager](https://zendframework.github.io/zend-servicemanager/).
+[zend-servicemanager](https://docs.zendframework.com/zend-servicemanager/).
 The following lists each, and details:
 
 - whether or not they are registered by default; and
@@ -19,7 +19,7 @@ By default, this factory is mapped to the service name `DependencyInjector`, and
 aliased to `Di`.
 
 Configuration for the service should follow the rules for
-[`Zend\Di\Config`](http://framework.zend.com/manual/current/en/modules/zend.di.configuration.html).
+[`Zend\Di\Config`](https://docs.zendframework.com/zend-di/config/).
 
 ## DiServiceFactory
 
@@ -52,7 +52,7 @@ configured `Di` instance. In most cases, you will use the
 ## DiAbstractServiceFactory
 
 `Zend\ServiceManager\Di\DiAbstractServiceFactory` provides an [abstract
-factory](http://zendframework.github.io/zend-servicemanager/configuring-the-service-manager/#abstract-factories)
+factory](http://docs.zendframework.com/zend-servicemanager/configuring-the-service-manager/#abstract-factories)
 that will, on invocation, pull the requested class from the composed
 `Zend\Di\Di` instance. It extends `DiServiceFactory` to provide the utilities
 necessary to act as an abstract factory.
@@ -156,7 +156,7 @@ return [
 ```
 
 You can use `DiStrictAbstractServiceFactory` in other locations as well, and
-with other configuration. Consider using [delegator factories](http://zendframework.github.io/zend-servicemanager/delegators/)
+with other configuration. Consider using [delegator factories](http://docs.zendframework.com/zend-servicemanager/delegators/)
 in order to seed the `DiStrictAbstractServiceFactory`:
 
 ```php
@@ -178,7 +178,7 @@ public function __invoke(ContainerInterface $container, $name, callable $callbac
 ## DiServiceInitializer
 
 `Zend\ServiceManager\Di\DiServiceInitializer` is a zend-servicemanager
-[initializer](http://zendframework.github.io/zend-servicemanager/configuring-the-service-manager/#initializers),
+[initializer](http://docs.zendframework.com/zend-servicemanager/configuring-the-service-manager/#initializers),
 and can be used to initialize instances after they've already been pulled from
 the container. This functionality can work with invokable services, or to
 augment existing factories in your zend-servicemanager configuration.

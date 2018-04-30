@@ -1,14 +1,14 @@
 <?php
 /**
- * @link      http://github.com/zendframework/zend-servicemanager-di for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/zendframework/zend-servicemanager-di for the canonical source repository
+ * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
+ * @license   https://github.com/zendframework/zend-servicemanager-di/blob/master/LICENSE.md New BSD License
  */
 
 namespace ZendTest\ServiceManager\Di;
 
 use Interop\Container\ContainerInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use stdClass;
 use Zend\Di\Config;
 use Zend\Di\Di;
@@ -58,7 +58,7 @@ class DiStrictAbstractServiceFactoryTest extends TestCase
             'not-whitelisted'
         ));
 
-        $this->setExpectedException(InvalidServiceException::class);
+        $this->expectException(InvalidServiceException::class);
         $instance->createServiceWithName($locator->reveal(), 'not-whitelisted', 'not-whitelisted');
     }
 
