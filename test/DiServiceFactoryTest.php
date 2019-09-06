@@ -1,7 +1,7 @@
 <?php
 /**
  * @see       https://github.com/zendframework/zend-servicemanager-di for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
+ * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (https://www.zend.com)
  * @license   https://github.com/zendframework/zend-servicemanager-di/blob/master/LICENSE.md New BSD License
  */
 
@@ -18,43 +18,12 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 class DiServiceFactoryTest extends TestCase
 {
     /**
-     * @var DiServiceFactory
-     */
-    protected $diServiceFactory;
-
-    protected $mockContainer;
-    protected $mockDi;
-    protected $fooInstance;
-
-    protected function setUp()
-    {
-        $instanceManager = new InstanceManager();
-        $instanceManager->addSharedInstanceWithParameters(
-            $this->fooInstance = new stdClass(),
-            'foo',
-            ['bar' => 'baz']
-        );
-        $this->mockDi = $this->getMockBuilder(Di::class)
-            ->setConstructorArgs([null, $instanceManager])
-            ->getMock();
-
-        $this->mockContainer = $this->prophesize(ServiceLocatorInterface::class);
-        $this->mockContainer->willImplement(ContainerInterface::class);
-
-        $this->diServiceFactory = new DiServiceFactory(
-            $this->mockDi,
-            ['bar' => 'baz']
-        );
-    }
-
-    /**
      * @covers \Zend\ServiceManager\Di\DiServiceFactory::__construct
      */
     public function testConstructor()
     {
         $instance = new DiServiceFactory(
-            $this->prophesize(Di::class)->reveal(),
-            ['foo' => 'bar']
+            $this->prophesize(Di::class)->reveal()
         );
         $this->assertInstanceOf(DiServiceFactory::class, $instance);
     }
@@ -65,8 +34,65 @@ class DiServiceFactoryTest extends TestCase
      */
     public function testCreateService()
     {
-        // check if v2 vs v3
-        $foo = $this->diServiceFactory->__invoke($this->mockContainer->reveal(), 'foo', ['bar' => 'baz']);
-        $this->assertEquals($this->fooInstance, $foo);
+        $fooInstance = new stdClass();
+
+        $instanceManager = new InstanceManager();
+        $instanceManager->addSharedInstanceWithParameters(
+            $fooInstance,
+            'foo',
+            ['bar' => 'baz']
+        );
+
+        $container = $this->prophesize(ContainerInterface::class);
+
+        $di = new Di(null, $instanceManager);
+        $diServiceFactory = new DiServiceFactory($di);
+
+        $foo = $diServiceFactory->__invoke($container->reveal(), 'foo', ['bar' => 'baz']);
+        $this->assertSame($fooInstance, $foo);
+    }
+
+    public function testCreateServiceWithNullOptions()
+    {
+        $fooInstance = new stdClass();
+
+        $instanceManager = new InstanceManager();
+        $instanceManager->addSharedInstance($fooInstance, 'foo');
+
+        $di = new Di(null, $instanceManager);
+        $diServiceFactory = new DiServiceFactory($di);
+
+        $container = $this->prophesize(ContainerInterface::class);
+
+        $foo = $diServiceFactory->__invoke($container->reveal(), 'foo');
+        $this->assertSame($fooInstance, $foo);
+    }
+
+    public function testCreateServiceV2V3()
+    {
+        $fooInstance = new stdClass();
+
+        $instanceManager = new InstanceManager();
+        $instanceManager->addSharedInstanceWithParameters(
+            $fooInstance,
+            'foo',
+            ['bar' => 'baz']
+        );
+
+        $container = $this->prophesize(ServiceLocatorInterface::class)
+            ->willImplement(ContainerInterface::class);
+
+        $di = new Di(null, $instanceManager);
+        $diServiceFactoryV3 = new DiServiceFactory($di);
+        $diServiceFactoryV2 = new DiServiceFactory($di);
+        $diServiceFactoryV2->setCreationOptions(['bar' => 'baz']);
+
+        $fooV3 = $diServiceFactoryV3->__invoke($container->reveal(), 'foo', ['bar' => 'baz']);
+        $this->assertSame($fooInstance, $fooV3);
+
+        $fooV2 = $diServiceFactoryV2->createService($container->reveal(), 'foo');
+        $this->assertSame($fooInstance, $fooV2);
+
+        $this->assertSame($fooV3, $fooV2);
     }
 }
