@@ -330,7 +330,7 @@ service.</p>
 <code>DiAbstractServiceFactory</code> by default. To register it as an abstract factory in
 your code, you will need to manually register it. This will typically be done
 via one of your application modules, within the <code>onBootstrap()</code> method:</p>
-<pre class="codehilite"><code class="language-php">class Module
+<p> <pre class=codehilite><code class=language-php>class Module
 {
     public function onBootstrap($e)
     {
@@ -339,8 +339,7 @@ via one of your application modules, within the <code>onBootstrap()</code> metho
 
         $services-&gt;addAbstractFactory($services-&gt;get('DiAbstractServiceFactory'));
     }
-}</code></pre>
-
+}</code></pre></p>
 <p>This should typically be done in a module registered early, to ensure it happens
 before many services are pulled from the container.</p>
 <h2 id="districtabstractservicefactory">DiStrictAbstractServiceFactory</h2>
@@ -359,7 +358,7 @@ create an instance!</p>
 <code>DiStrictAbstractServiceFactory</code> by default. To register it as an abstract factory in
 your code, you will need to manually register it. This will typically be done
 via one of your application modules, within the <code>onBootstrap()</code> method:</p>
-<pre class="codehilite"><code class="language-php">class Module
+<p> <pre class=codehilite><code class=language-php>class Module
 {
     public function onBootstrap($e)
     {
@@ -368,8 +367,7 @@ via one of your application modules, within the <code>onBootstrap()</code> metho
 
         $services-&gt;addAbstractFactory($services-&gt;get('DiStrictAbstractServiceFactory'));
     }
-}</code></pre>
-
+}</code></pre></p>
 <p>This should typically be done in a module registered early, to ensure it happens
 before many services are pulled from the container.</p>
 <p>By default, <code>DiStrictAbstractServiceFactory</code> is consumed by
@@ -378,18 +376,17 @@ is added as an abstract factory to the <code>ControllerManager</code> instance.<
 <p>Thsu, by default, the factory for building the <code>DiStrictAbstractServiceFactory</code>
 instance checks for configuration under <code>di.allowed_controllers</code>; this should
 be an array of controller names to add to the service:</p>
-<pre class="codehilite"><code class="language-php">return [
+<p> <pre class=codehilite><code class=language-php>return [
     'di' =&gt; [
         'allowed_controllers' =&gt; [
             'Some\Controller\Name',
         ],
     ],
-];</code></pre>
-
+];</code></pre></p>
 <p>You can use <code>DiStrictAbstractServiceFactory</code> in other locations as well, and
 with other configuration. Consider using <a href="http://docs.zendframework.com/zend-servicemanager/delegators/">delegator factories</a>
 in order to seed the <code>DiStrictAbstractServiceFactory</code>:</p>
-<pre class="codehilite"><code class="language-php">public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)
+<p> <pre class=codehilite><code class=language-php>public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)
 {
     $diStrictAbstractFactory = $callback();
 
@@ -401,8 +398,7 @@ in order to seed the <code>DiStrictAbstractServiceFactory</code>:</p>
 
     $diStrictAbstractFactory-&gt;setAllowedServiceNames($config['application_di_class_whitelist']);
     return $diStrictAbstractFactory;
-}</code></pre>
-
+}</code></pre></p>
 <h2 id="diserviceinitializer">DiServiceInitializer</h2>
 <p><code>Zend\ServiceManager\Di\DiServiceInitializer</code> is a zend-servicemanager
 <a href="http://docs.zendframework.com/zend-servicemanager/configuring-the-service-manager/#initializers">initializer</a>,
@@ -413,7 +409,7 @@ augment existing factories in your zend-servicemanager configuration.</p>
 application container, it is registered with zend-servicemanager, and you will
 need to retrieve it and add it as an initializer manually, typically in an
 application module's <code>onBootstrap()</code> method:</p>
-<pre class="codehilite"><code class="language-php">class Module
+<p> <pre class=codehilite><code class=language-php>class Module
 {
     public function onBootstrap($e)
     {
@@ -422,8 +418,7 @@ application module's <code>onBootstrap()</code> method:</p>
 
         $services-&gt;addInitializer($services-&gt;get('DiServiceInitializer'));
     }
-}</code></pre>
-
+}</code></pre></p>
 <p>We do not recommend using this functionality, as initializers are run for every
 new instance retrieved, and the functionality could conflict with existing
 factories for services.</p>
@@ -460,7 +455,7 @@ factories for services.</p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-servicemanager-di/edit/master/docs/services.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-servicemanager-di/edit/master/docs/book/services.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>
