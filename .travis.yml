@@ -1,5 +1,3 @@
-sudo: false
-
 language: php
 
 cache:
@@ -19,7 +17,7 @@ matrix:
     - php: 5.6
       env:
         - DEPS=locked
-        - LEGACY_DEPS="phpunit/phpunit zendframework/zend-code"
+        - LEGACY_DEPS="phpunit/phpunit symfony/console symfony/filesystem symfony/finder symfony/process zendframework/zend-di"
     - php: 5.6
       env:
         - DEPS=latest
@@ -29,7 +27,7 @@ matrix:
     - php: 7
       env:
         - DEPS=locked
-        - LEGACY_DEPS="phpunit/phpunit zendframework/zend-code"
+        - LEGACY_DEPS="phpunit/phpunit symfony/console symfony/filesystem symfony/finder symfony/process zendframework/zend-di"
     - php: 7
       env:
         - DEPS=latest
@@ -51,6 +49,16 @@ matrix:
       env:
         - DEPS=locked
     - php: 7.2
+      env:
+        - DEPS=latest
+    # Disabled as some versions of zend-code are not compatible with PHP 7.3
+    # - php: 7.3
+    #   env:
+    #     - DEPS=lowest
+    # - php: 7.3
+    #   env:
+    #     - DEPS=locked
+    - php: 7.3
       env:
         - DEPS=latest
 
