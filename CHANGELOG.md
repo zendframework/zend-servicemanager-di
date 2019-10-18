@@ -44,7 +44,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#18](https://github.com/zendframework/zend-servicemanager-di/pull/18) fixes `Zend\ServiceManager\Di\DiServiceFactory::__invoke`
+  when parameter `$options` is `null`.
 
 ## 1.2.0 - 2018-04-30
 

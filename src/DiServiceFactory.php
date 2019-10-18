@@ -1,7 +1,7 @@
 <?php
 /**
  * @see       https://github.com/zendframework/zend-servicemanager-di for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
+ * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (https://www.zend.com)
  * @license   https://github.com/zendframework/zend-servicemanager-di/blob/master/LICENSE.md New BSD License
  */
 
@@ -46,7 +46,7 @@ class DiServiceFactory extends Di implements FactoryInterface
     /**
      * @var ContainerInterface
      */
-    protected $container = null;
+    protected $container;
 
     /**
      * zend-servicemanager v2 support for factory creation options.
@@ -58,7 +58,7 @@ class DiServiceFactory extends Di implements FactoryInterface
     /**
      * @var Di
      */
-    protected $di = null;
+    protected $di;
 
     /**
      * @var string
@@ -71,15 +71,12 @@ class DiServiceFactory extends Di implements FactoryInterface
      */
     public function __construct(Di $di, $useContainer = self::USE_SL_NONE)
     {
+        parent::__construct($di->definitions(), $di->instanceManager());
         $this->di = $di;
 
-        if (in_array($useContainer, [self::USE_SL_BEFORE_DI, self::USE_SL_AFTER_DI, self::USE_SL_NONE])) {
+        if (in_array($useContainer, [self::USE_SL_BEFORE_DI, self::USE_SL_AFTER_DI, self::USE_SL_NONE], true)) {
             $this->useContainer = $useContainer;
         }
-
-        // since we are using this in a proxy-fashion, localize state
-        $this->definitions = $this->di->definitions;
-        $this->instanceManager = $this->di->instanceManager;
     }
 
     /**
@@ -88,7 +85,7 @@ class DiServiceFactory extends Di implements FactoryInterface
     public function __invoke(ContainerInterface $container, $name, array $options = null)
     {
         $this->container = $container;
-        return $this->get($name, $options);
+        return $this->get($name, $options ?: []);
     }
 
     /**
@@ -126,7 +123,7 @@ class DiServiceFactory extends Di implements FactoryInterface
     public function get($name, array $params = [])
     {
         // Allow this di service to get dependencies from the service locator BEFORE trying DI.
-        if ($this->useContainer == self::USE_SL_BEFORE_DI && $this->container->has($name)) {
+        if ($this->useContainer === self::USE_SL_BEFORE_DI && $this->container->has($name)) {
             return $this->container->get($name);
         }
 

@@ -9,6 +9,7 @@ namespace ZendTest\ServiceManager\Di;
 
 use Interop\Container\ContainerInterface;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Prophecy\ObjectProphecy;
 use stdClass;
 use Zend\Di\Definition\DefinitionInterface;
 use Zend\Di\Di;
@@ -23,22 +24,25 @@ class DiAbstractServiceFactoryTest extends TestCase
      */
     protected $diAbstractServiceFactory;
 
+    /** @var stdClass */
     protected $fooInstance;
+
+    /** @var ContainerInterface|ServiceLocatorInterface|ObjectProphecy */
     protected $mockContainer;
-    protected $mockDi;
 
     protected function setUp()
     {
+        $this->fooInstance = new stdClass();
+
         $instanceManager = new InstanceManager();
-        $instanceManager->addSharedInstance($this->fooInstance = new stdClass(), 'foo');
-        $this->mockDi = $this->getMockBuilder(Di::class)
-            ->setConstructorArgs([null, $instanceManager])
-            ->getMock();
+        $instanceManager->addSharedInstance($this->fooInstance, 'foo');
+
+        $di = new Di(null, $instanceManager);
 
         $this->mockContainer = $this->prophesize(ServiceLocatorInterface::class);
         $this->mockContainer->willImplement(ContainerInterface::class);
 
-        $this->diAbstractServiceFactory = new DiAbstractServiceFactory($this->mockDi);
+        $this->diAbstractServiceFactory = new DiAbstractServiceFactory($di);
     }
 
     /**
