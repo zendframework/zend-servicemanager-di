@@ -51,12 +51,13 @@ matrix:
     - php: 7.2
       env:
         - DEPS=latest
-    - php: 7.3
-      env:
-        - DEPS=lowest
-    - php: 7.3
-      env:
-        - DEPS=locked
+    # Disabled as some versions of zend-code are not compatible with PHP 7.3
+    # - php: 7.3
+    #   env:
+    #     - DEPS=lowest
+    # - php: 7.3
+    #   env:
+    #     - DEPS=locked
     - php: 7.3
       env:
         - DEPS=latest
