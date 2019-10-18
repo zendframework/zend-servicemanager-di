@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="zend-servicemanager-di: zend-servicemanager / zend-di integration">  
+    <meta name="description" content="zend-di integration for zend-servicemanager">  
     <link rel="canonical" href="https://docs.zendframework.com/zend-servicemanager-di/">
     <link rel="shortcut icon" href="img/favicon.ico">
 
-    <title>zend-servicemanager-di - zend-servicemanager-di - Zend Framework Docs</title>
+    <title>zend-servicemanager-di - Zend Framework Docs</title>
 
     <link rel="stylesheet" href="css/styles-5cfabd53ee.css">
 </head>
@@ -73,20 +73,6 @@
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
 
         <ul class="subnavigation__list">
-            
-
-                
-                
-
-                    
-                    
-                        
-                            <li class="subnavigation__list-item subnavigation__list-item--active">
-                                <a href="." class="subnavigation__link">zend-servicemanager-di</a>
-                            </li>
-                        
-                    
-                
             
 
                 
@@ -203,11 +189,7 @@
         <li><a href="https://docs.zendframework.com/">Documentation</a></li>
 
         
-            <li><a href=".">zend-servicemanager-di</a></li>
-
-            
-
-            <li class="active">zend-servicemanager-di</li>
+            <li>zend-servicemanager-di</li>
         
     
 </ol>
@@ -217,12 +199,24 @@
 
 
     <h1>zend-servicemanager-di</h1>
-<p>zend-servicemanager-di: zend-servicemanager / zend-di integration</p>
+<p>zend-di integration for zend-servicemanager</p>
 
 
-    <h2>Installation</h2>
-    <h3>Using Composer</h3>
-    <pre><code class="language-bash">$ composer require zendframework/zend-servicemanager-di</code></pre>
+    <h2 id="installation">Installation</h2>
+<h3>Using Composer</h3>
+<p> <pre class=codehilite><code class=language-bash>$ composer require zendframework/zend-servicemanager-di</code></pre></p>
+<p>If you are using the <a href="https://docs.zendframework.com/zend-component-installer">zend-component-installer</a>,
+you're done!</p>
+<p>If not, you will need to add the component as a module to your
+application. Add the entry <code>'Zend\ServiceManager\Di'</code> to
+your list of modules in your application configuration (typically
+one of <code>config/application.config.php</code> or <code>config/modules.config.php</code>).</p>
+<h2 id="usage">Usage</h2>
+<p>The code in this package augments <a href="https://docs.zendframework.com/zend-servicemanager/">zend-servicemanager</a>,
+providing integration with <a href="https://github.com/zendframework/zend-di">zend-di</a>.
+Read the <a href="services/">Services</a> chapter for details.</p>
+
+    
 
 
 <h2>Support</h2>
@@ -258,6 +252,15 @@
 
 
 
+    <div class="help-wanted">
+        <p>
+            Found a mistake or want to contribute to the documentation?
+            <a href="https://github.com/zendframework/zend-servicemanager-di/edit/master/docs/book/index.md" target="_blank" class="help-wanted__link">
+                Edit this page on GitHub!
+            </a>
+        </p>
+    </div>
+
                 
             <!-- content:end -->
             </div>
@@ -280,20 +283,6 @@
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
 
         <ul class="subnavigation__list">
-            
-
-                
-                
-
-                    
-                    
-                        
-                            <li class="subnavigation__list-item subnavigation__list-item--active">
-                                <a href="." class="subnavigation__link">zend-servicemanager-di</a>
-                            </li>
-                        
-                    
-                
             
 
                 
@@ -446,5 +435,5 @@
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-10-18 18:15:28
+Build Date UTC : 2019-10-18 18:29:05
 -->
