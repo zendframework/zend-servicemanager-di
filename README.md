@@ -1,5 +1,9 @@
 # zend-servicemanager-di
 
+> ## Repository abandoned 2019-12-31
+>
+> This repository has moved to laminas/laminas-servicemanager-di.
+
 [![Build Status](https://secure.travis-ci.org/zendframework/zend-servicemanager-di.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-servicemanager-di)
 [![Coverage Status](https://coveralls.io/repos/github/zendframework/zend-servicemanager-di/badge.svg?branch=master)](https://coveralls.io/github/zendframework/zend-servicemanager-di?branch=master)
 
